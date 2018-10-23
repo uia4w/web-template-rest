@@ -1,0 +1,34 @@
+{
+    "name": "rest",
+    "version": "0.1.0",
+    "description": "RESTful API JavaScript wrapper",
+    "keywords": [
+        "uia",
+        "restful"
+    ],
+    "homepage": "https://github.com/uia4w/web-template-rest",
+    "license": "Apache-2.0",
+    "author": {
+        "name": "Kyle K. Lin",
+        "url": "https://github.com/uia4w/web-template-rest"
+    },
+    "main": "dist/rest-0.1.0.js",
+    "module": "index",
+    "jsnext:main": "index",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/uia4w/web-template-rest"
+    },
+    "scripts": {
+        "pretest": "rm -rf dist && mkdir dist && rollup -c",
+        "test": "tape test/**/*-test.js && eslint index.js src"
+    },
+    "devDependencies": {
+        "eslint": "4",
+        "jsdom": "11",
+        "package-preamble": "0.1",
+        "rollup": "0.66",
+        "tape": "4",
+        "uglify-js": "3.2"
+    }
+}
