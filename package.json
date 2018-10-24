@@ -1,9 +1,10 @@
 {
-    "name": "rest",
+    "name": "template-rest",
     "version": "0.1.0",
     "description": "RESTful API JavaScript wrapper",
     "keywords": [
-        "uia",
+        "template",
+        "template-rest",
         "restful"
     ],
     "homepage": "https://github.com/uia4w/web-template-rest",
@@ -12,7 +13,7 @@
         "name": "Kyle K. Lin",
         "url": "https://github.com/uia4w/web-template-rest"
     },
-    "main": "dist/rest-0.1.0.js",
+    "main": "dist/template-rest.js",
     "module": "index",
     "jsnext:main": "index",
     "repository": {
@@ -21,9 +22,11 @@
     },
     "scripts": {
         "pretest": "rm -rf dist && mkdir dist && rollup -c",
-        "test": "tape test/**/*-test.js && eslint index.js src"
+        "test": "tape test/**/*-test.js && eslint index.js src",
+        "build": "npm run test && uglifyjs -b beautify=false,preamble=\"'$(preamble)'\" dist/template-rest.js -c -m -o dist/template-rest.min.js"
     },
     "devDependencies": {
+        "xmlhttprequest": "1.8.0",
         "eslint": "4",
         "jsdom": "11",
         "package-preamble": "0.1",

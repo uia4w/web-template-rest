@@ -1,9 +1,40 @@
 web-template-rest
 ===
 
+## Description
+
 This template provides simple way to wrap RESTful service as JavaScript API.
 
-## Objects
+Keywords:
+* template-rest
+
+Before developing, you can test and build to verify this source code.
+
+### Test
+1. Modify endpoint in `test/TemplateWebService-test.js` before testing.
+```js
+var endpoint = "http://address:port/yourapp/api/subjectName";
+var serv = new rest.TemplateWebService(endpoint);
+serv.queryAll(result => console.log(result));
+```
+
+2. Make sure that RESTful API provides `GET` without any parameters.
+
+3. Test.
+```
+npm run test
+```
+
+### Build
+1. Build.
+```js
+npm run build
+```
+
+2. `template-rest.js` and `template-rest.min.js` are outputed  to `dist` folder.
+
+
+## Templates
 ### AbstractWebService.js
 Implement __GET/POST/PUT/DELETE__ simply.
 
@@ -17,10 +48,10 @@ The template of RESTful service provides default implementation of
 * queryAll
 * queryOne
 
-## How to Use
-
-* COPY, PASTE and RENAME to your service name.
-* Rename keyword __subjects__ in the file to actual endpoint.
+### How to Use
+* COPY, PASTE and RENAME `TemplateWebService.js` to your service name.
+* Modify __this.url__ in the file to actual endpoint.
+* Add new methods based on API.
 
 ## What Different
 ### Before

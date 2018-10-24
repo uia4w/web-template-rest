@@ -3,6 +3,8 @@ parserOptions:
 
 env:
     browser: true
+    amd: true           // eslint registers globals for 'define' and 'require'.
+    commonjs: false
 
 extends:
     "eslint:recommended"

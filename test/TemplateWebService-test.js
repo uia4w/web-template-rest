@@ -1,8 +1,10 @@
 var tape = require("tape"),
-    jsdom = require("jsdom"),
-    rest = require("../TemplateWebService");
+    rest = require("../");
 
 tape("rest.TemplateWebService configurtion", function(test) {
-    var serv = new rest.TemplateWebService("http://localhost:8080/somewhere/api/v1");
+    var endpoint = "http://localhost:8080/uia-pie-web/api/v1/equips";
+    var serv = new rest.TemplateWebService(endpoint);
+    test.equal(serv.url, endpoint);
+	serv.queryAll(result => console.log(result));
     test.end();
 });

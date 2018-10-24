@@ -9,6 +9,6 @@ export default {
     file: `dist/${definition.name}.js`,
     format: "umd",
     globals: dependencies.reduce((p, v) => (p[v] = "pie", p), {}),
-    name: "rest"
+    name: "template-rest"
   }
 };

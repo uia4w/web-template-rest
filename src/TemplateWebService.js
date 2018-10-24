@@ -4,9 +4,11 @@ import AbstractWebService from './AbstractWebService';
  * Constructor.
  * @public
  * @param {string} webapi root url.
+ * @param {string} subjectName subject name. The URL will be webapi/subjectName if subjectName is not null.
  */
 var TemplateWebService = function(webapi) {
-    this.url = webapi + "/subjects/";
+    // TODO: modify to actual endpint, ex this.url = webapi + "/users/"
+    this.url = webapi;
 };
 
 /**
