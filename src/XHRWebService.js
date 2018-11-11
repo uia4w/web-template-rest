@@ -1,14 +1,19 @@
+// use require
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+
+// use import
+// import XMLHttpRequest from 'xmlhttprequest';
+
 
 /**
  * Constructor.
  */
-var AbstractWebService = function() {}
+var XHRWebService = function() {}
 
 /**
  * Post.
  */
-AbstractWebService.prototype.jsonPost = function(apiUrl, apiRequest, responseCallback) {
+XHRWebService.prototype.jsonPost = function(apiUrl, requestData, responseCallback) {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", apiUrl, true);
     xhr.setRequestHeader('Content-type', 'application/json; cruns=utf-8');
@@ -21,8 +26,8 @@ AbstractWebService.prototype.jsonPost = function(apiUrl, apiRequest, responseCal
             }
         }
     }
-    if (apiRequest) {
-        xhr.send(JSON.stringify(apiRequest));
+    if (requestData) {
+        xhr.send(JSON.stringify(requestData));
     } else {
         xhr.send();
     }
@@ -31,7 +36,7 @@ AbstractWebService.prototype.jsonPost = function(apiUrl, apiRequest, responseCal
 /**
  * Put.
  */
-AbstractWebService.prototype.jsonPut = function(apiUrl, apiRequest, responseCallback) {
+XHRWebService.prototype.jsonPut = function(apiUrl, requestData, responseCallback) {
     var xhr = new XMLHttpRequest();
     xhr.open("PUT", apiUrl, true);
     xhr.setRequestHeader('Content-type', 'application/json; cruns=utf-8');
@@ -44,8 +49,8 @@ AbstractWebService.prototype.jsonPut = function(apiUrl, apiRequest, responseCall
             }
         }
     }
-    if (apiRequest) {
-        xhr.send(JSON.stringify(apiRequest));
+    if (requestData) {
+        xhr.send(JSON.stringify(requestData));
     } else {
         xhr.send();
     }
@@ -55,7 +60,7 @@ AbstractWebService.prototype.jsonPut = function(apiUrl, apiRequest, responseCall
 /**
  * Delete.
  */
-AbstractWebService.prototype.jsonDelete = function(apiUrl, apiRequest, responseCallback) {
+XHRWebService.prototype.jsonDelete = function(apiUrl, requestData, responseCallback) {
     var xhr = new XMLHttpRequest();
     xhr.open("DELETE", apiUrl, true);
     xhr.setRequestHeader('Content-type', 'application/json; cruns=utf-8');
@@ -68,8 +73,8 @@ AbstractWebService.prototype.jsonDelete = function(apiUrl, apiRequest, responseC
             }
         }
     }
-    if (apiRequest) {
-        xhr.send(JSON.stringify(apiRequest));
+    if (requestData) {
+        xhr.send(JSON.stringify(requestData));
     } else {
         xhr.send();
     }
@@ -78,7 +83,7 @@ AbstractWebService.prototype.jsonDelete = function(apiUrl, apiRequest, responseC
 /**
  * Get.
  */
-AbstractWebService.prototype.jsonGet = function(apiUrl, responseCallback) {
+XHRWebService.prototype.jsonGet = function(apiUrl, responseCallback) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", apiUrl, true);
     xhr.setRequestHeader('Content-type', 'application/json; cruns=utf-8');
@@ -94,4 +99,4 @@ AbstractWebService.prototype.jsonGet = function(apiUrl, responseCallback) {
     xhr.send();
 }
 
-export default AbstractWebService;
+export default XHRWebService;

@@ -21,17 +21,26 @@
         "url": "https://github.com/uia4w/web-template-rest"
     },
     "scripts": {
+        "clean": "rm -rf dist && mkdir dist",
         "pretest": "rm -rf dist && mkdir dist && rollup -c",
         "test": "tape test/**/*-test.js && eslint index.js src",
+        "testfetch": "npm run pretest && tape test/FetchTemplateWebService-testx.js",
+        "testxhr": "npm run pretest && tape test/XHRTemplateWebService-testx.js",
         "build": "npm run test && uglifyjs -b beautify=false,preamble=\"'$(preamble)'\" dist/template-rest.js -c -m -o dist/template-rest.min.js"
     },
     "devDependencies": {
+        "node-fetch": "2.2.1",
         "xmlhttprequest": "1.8.0",
         "eslint": "4",
         "jsdom": "11",
         "package-preamble": "0.1",
         "rollup": "0.66",
         "tape": "4",
-        "uglify-js": "3.2"
+        "uglify-js": "3.2",
+        "rollup-plugin-ignore": "1.0.4"
+    },
+    "dependencies": {
+        "node-fetch": "2.2.1",
+        "xmlhttprequest": "1.8.0"
     }
 }
