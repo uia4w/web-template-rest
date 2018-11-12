@@ -1,5 +1,6 @@
 web-template-rest
 ===
+[Chinese](blob/master/README_TW.md)
 
 ## Description
 
@@ -36,16 +37,16 @@ __template-rest.js__ and __template-rest.min.js__ are outputed  to __dist__ fold
 All implement simple __GET/POST/PUT/DELETE__ methods.
 
 #### FetchWebService.js
-* Use __Fetch__ to send request.
-* Use __Promise__  to handle response.
+* Use __Fetch__ to send the request.
+* Use __Promise__  to handle the response.
 
 #### XHRWebService.js
-* Use __XMLHttpRequest__ to send request.
-* Use __callback function__ to handle response.
+* Use __XMLHttpRequest__ to send the request.
+* Use __callback function__ to handle the response.
 
 
 ### Templates of Web Service
-The template provides default implementation of
+All templates provide default implementation of
 * insert
 * update
 * delete
@@ -61,7 +62,7 @@ The template provides default implementation of
 
 ## Try It
 
-### Naming Your Project
+### Rename for the Porject
 #### rollup.config.js
 ```js
 export default {
@@ -78,7 +79,8 @@ export default {
 ```
 
 ### Create New Web Service
-* COPY, PASTE one template and RENAME to your service name.
+Suppose there is a web service about `user` information:
+* COPY, PASTE one template and RENAME to __UserWebService__.
 * Modify __this.url__ in the file to actual endpoint.
 * Add new methods based on your API.
 * Test.
@@ -88,7 +90,7 @@ export default {
 ```js
 var apiURL = "http://localhost:8080/some-app/api/v1";
 var xhr = new XMLHttpRequest();
-xhr.open("GET", apiURL + "/subjects");  // nightmare if subjects changed
+xhr.open("GET", apiURL + "/users");  // nightmare if 'users' changed
 xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 xhr.onload = function() {
     var result = JSON.parse(xhr.responseText);
@@ -99,7 +101,8 @@ xhr.send();
 #### After - XHR
 ```js
 var apiURL = "http://localhost:8080/some-app/api/v1";
-new XHRTemplateWebService(apiURL).queryAll(
+// 'users' appended in UserWebService
+new UserWebService(apiURL).queryAll(
     (result) => {
         // do something
     });
@@ -107,13 +110,27 @@ new XHRTemplateWebService(apiURL).queryAll(
 #### After - Fetch
 ```js
 var apiURL = "http://localhost:8080/some-app/api/v1";
-new FetchTemplateWebService(apiURL).queryAll()
+// 'users' appended in UserWebService
+new UserWebService(apiURL).queryAll()
     .then(result = > {
         // do something
     })
     .catch();
 ```
 
-
 ## Known Issues
 * require("xmlhttprequest").XMLHttpRequest can not be used in the browser.
+
+## Copyright and License
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+[http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
