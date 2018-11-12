@@ -1,6 +1,6 @@
 web-template-rest
 ===
-[Chinese](blob/master/README_TW.md)
+[Chinese](README_TW.md)
 
 ## Description
 

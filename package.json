@@ -26,7 +26,7 @@
         "test": "tape test/**/*-test.js && eslint index.js src",
         "testfetch": "npm run pretest && tape test/FetchTemplateWebService-testx.js",
         "testxhr": "npm run pretest && tape test/XHRTemplateWebService-testx.js",
-        "build": "npm run test && uglifyjs -b beautify=false,preamble=\"'$(preamble)'\" dist/template-rest.js -c -m -o dist/template-rest.min.js"
+        "build": "npm run test && uglifyjs -b beautify=false dist/template-rest.js -c -m -o dist/template-rest.min.js"
     },
     "devDependencies": {
         "node-fetch": "2.2.1",
